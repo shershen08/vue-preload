@@ -1,0 +1,24 @@
+{
+  "name": "vue-preload",
+  "version": "0.0.1",
+  "description": "plugin for vuejs to utilize '<link rel=\"preload\"' functionality",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shershen08/vue-preload.git"
+  },
+  "keywords": [
+    "preload",
+    "vuejs",
+    "ssr"
+  ],
+  "author": "mikhail kuznetsov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shershen08/vue-preload/issues"
+  },
+  "homepage": "https://github.com/shershen08/vue-preload#readme"
+}
