@@ -1,13 +1,13 @@
 ## Install
 
 ```
-npm install vue-preload
+npm install vue-link-preload
 ```
 
 ## Usage
 
 ```
-import Preload from 'vue-preload'
+import Preload from 'vue-link-preload'
 
 Vue.use(Preload)
 
