@@ -3,8 +3,17 @@ const VuePreload = {}
 
 const validateAs = type => ['', 'script', 'style', 'image', 'media', 'document', 'font'].indexOf(type) > -1
 
+const domTokenListSupports = function() {
+  try {
+    return document.createElement('link').relList.supports('preload')
+  } catch (e) {
+    // not supported
+  }
+}
+
 VuePreload.install = function(Vue) {
-  Vue.addPreloadLink = function(elementHref, elementAs) {
+  Vue.addPreloadLink = function(elementHref, elementAs, elementOnload) {
+    if (!domTokenListSupports()) return
     if (!validateAs(elementAs)) return
     if (elementAs === '') elementAs = 'script'
 
@@ -22,22 +31,22 @@ VuePreload.install = function(Vue) {
     href.value = elementHref
     lnk.setAttributeNode(href)
 
-    document.head.appendChild(lnk)
+    if (elementOnload) {
+      const onload = document.createAttribute('onload')
+      onload.value = elementOnload
+      lnk.setAttributeNode(onload)
+    }
 
-    // todo: implement other things from
-    // https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/
-    // elementMedia
+    document.head.appendChild(lnk)
   }
 
-  Vue.preloadMap = function(resourcesMap) {
+  Vue.preloadGroup = function(resourcesMap) {
     for (const [key, value] of Object.entries(resourcesMap)) {
-      Vue.addPreloadLink(value, key)
+      if (validateAs(key) && value.length) {
+        value.forEach(item => Vue.addPreloadLink(item, key))
+      }
     }
   }
-
-//   Vue.mixin({
-//     addPreload: Vue.addPreloadLink
-//   })
 }
 
 
