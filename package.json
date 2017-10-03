@@ -1,6 +1,6 @@
 {
   "name": "vue-link-preload",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "plugin for vuejs to utilize '<link rel=\"preload\"' functionality",
   "main": "index.js",
   "scripts": {
