@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/shershen08/vue-preload/issues"
   },
-  "homepage": "https://github.com/shershen08/vue-preload#readme"
+  "homepage": "https://github.com/shershen08/vue-preload#readme",
+  "devDependencies": {
+    "jest": "^21.2.1"
+  }
 }
