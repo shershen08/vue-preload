@@ -7,13 +7,21 @@ const domTokenListSupports = function() {
   try {
     return document.createElement('link').relList.supports('preload')
   } catch (e) {
-    // not supported
+    // link[rel=preload] is not supported
   }
 }
 
 VuePreload.install = function(Vue) {
+  
+  let isSupported;
+  const init = function(){
+    isSupported = domTokenListSupports();
+    
+    if(!isSupported) console.info('Current browser does not support link[rel=preload] functionality')
+  }
+
   Vue.addPreloadLink = function(elementHref, elementAs, elementOnload) {
-    if (!domTokenListSupports()) return
+    if (!isSupported) return
     if (!validateAs(elementAs)) return
     if (elementAs === '') elementAs = 'script'
 
@@ -47,6 +55,8 @@ VuePreload.install = function(Vue) {
       }
     }
   }
+
+  init()
 }
 
 

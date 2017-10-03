@@ -1,3 +1,5 @@
+Tool for SSR apps that include other resources that may be handy to preload.
+
 ## Install
 
 ```
@@ -27,18 +29,19 @@ Vue.preloadGroup({
 
 **Vue.addPreloadLink(link,[ type, callback])**
 
-Preload single resource.
+Preload single resource. You can provide type and optionaly a callback on when the resource is available.
 
 
 **Vue.preloadGroup(resourseMap)**
 
-Preload group of resources of multiple types.
+Preload group of resources of multiple types. The map keys are limited to valid preload asset types:
+script, style, image, media, document, font. 
 
 
 ## See also
 
  - [smashingmagazine.com Preload: What Is It Good For? By Yoav Weiss](https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/)
- - [current browser support](http://caniuse.com/#search=preload)
+ - [current browser support for <link rel="preload"](http://caniuse.com/#search=preload)
 
 ## License 
 
