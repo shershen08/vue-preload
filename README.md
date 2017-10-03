@@ -1,9 +1,13 @@
-Tool for SSR apps that include other resources that may be handy to preload.
+Tool for [Vue.js SSR apps](https://vuejs.org/v2/guide/ssr.html) that include other resources that may be handy to preload to improve performance.
+
+## Demo
+
+Using [vue-ssr-boilerplate](https://github.com/fenivana/vue-ssr-boilerplate)
 
 ## Install
 
 ```
-npm install vue-link-preload
+npm install vue-link-preload --save
 ```
 
 ## Usage
@@ -27,7 +31,7 @@ Vue.preloadGroup({
 
 ## API
 
-**Vue.addPreloadLink(link,[ type, callback])**
+**Vue.addPreloadLink(link,[ type])**
 
 Preload single resource. You can provide type and optionaly a callback on when the resource is available.
 

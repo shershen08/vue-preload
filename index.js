@@ -20,10 +20,10 @@ VuePreload.install = function(Vue) {
     if(!isSupported) console.info('Current browser does not support link[rel=preload] functionality')
   }
 
-  Vue.addPreloadLink = function(elementHref, elementAs, elementOnload) {
+  Vue.addPreloadLink = function(elementHref, elementAs) {
     if (!isSupported) return
+    if (elementAs === undefined) elementAs = 'script'
     if (!validateAs(elementAs)) return
-    if (elementAs === '') elementAs = 'script'
 
     const lnk = document.createElement('link')
 
@@ -38,12 +38,6 @@ VuePreload.install = function(Vue) {
     const href = document.createAttribute('href')
     href.value = elementHref
     lnk.setAttributeNode(href)
-
-    if (elementOnload) {
-      const onload = document.createAttribute('onload')
-      onload.value = elementOnload
-      lnk.setAttributeNode(onload)
-    }
 
     document.head.appendChild(lnk)
   }
