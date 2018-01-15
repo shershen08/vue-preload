@@ -1,5 +1,8 @@
 Tool for [Vue.js SSR apps](https://vuejs.org/v2/guide/ssr.html) that include other resources that may be handy to preload to improve performance.
 
+
+![dependencies status](https://david-dm.org/shershen08/vue-preload/status.svg)
+
 ## Demo
 
 Using [vue-ssr-boilerplate](https://github.com/fenivana/vue-ssr-boilerplate)
